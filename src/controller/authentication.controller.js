@@ -4,9 +4,7 @@ import user from '../model/user.model.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
 
-const JWT_SECRET = process.env.JWT_SECRET || "847n5p475co4nx7mc4501mc40m030";
-
-
+// Registration controller
 export const register = async (req, res) => {   
     const {name, email, password, role} = req.body;
     try {
@@ -31,16 +29,16 @@ export const register = async (req, res) => {
         }
 
     } catch (err) {
-        console.log("Error during registration:", err.message);
+        console.log("Registration Controller Error:", err.message);
         res.status(500).json({message: "Internal server error"});
     }
 }
 
-
+// Login controller
 export const login =  async (req, res) => {
     const {email, password, role} = req.body;
     try {
-        // For the admin registration
+        // For the admin login
         if (role === 'admin') {
             const isAdmin = await admin.findOne({email});
             if(!isAdmin || !(await bcrypt.compare(password, isAdmin.password))) return res.status(400).json({message: "Invalid credentials."});
@@ -51,7 +49,7 @@ export const login =  async (req, res) => {
             res.status(200).json({ message: "Login successful", user: { name: isAdmin.name } });
         }
 
-        // For the user registration
+        // For the user login
         if (role === 'user') {
             const isUser = await user.findOne({email});
             if(!isUser || !(await bcrypt.compare(password, isUser.password))) return res.status(400).json({message: "Invalid credentials."});
@@ -62,7 +60,7 @@ export const login =  async (req, res) => {
             res.status(200).json({ message: "Login successful", user: { name: isUser.name } });
         }
     } catch (err) {
-        console.log("Error during login:", err.message);
+        console.log("Login Controller Error:", err.message);
         res.status(500).json({message: "Internal server error"});
     }
 }
