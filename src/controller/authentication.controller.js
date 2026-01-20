@@ -1,4 +1,3 @@
-import { useSyncExternalStore } from 'react';
 import admin from '../model/admin.model.js';
 import user from '../model/user.model.js';
 import bcrypt from 'bcrypt';
@@ -29,7 +28,7 @@ export const register = async (req, res) => {
         }
 
     } catch (err) {
-        console.log("Registration Controller Error:", err.message);
+        console.log("REGISTRATION CONTROLLER ERROR:", err.message);
         res.status(500).json({message: "Internal server error"});
     }
 }
@@ -60,7 +59,7 @@ export const login =  async (req, res) => {
             res.status(200).json({ message: "Login successful", user: { name: isUser.name } });
         }
     } catch (err) {
-        console.log("Login Controller Error:", err.message);
+        console.log("LOGIN CONTROLLER ERROR:", err.message);
         res.status(500).json({message: "Internal server error"});
     }
 }
