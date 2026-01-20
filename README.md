@@ -52,18 +52,25 @@ npm start
 ### 📁 Project Structure
 
 ```text
-├── index.js                # Entry point of the application
-├── package.json  
+├── app.js
+├── index.js
+├── package.json
 ├── package-lock.json
-├── README.md
-├── src
-│   ├── config              # Database connection logic
-│   ├── controller          # Request handling (logic)
-│   ├── middleware          # Authentication guards
-│   ├── model               # Mongoose schemas (User/Admin)
-│   └── routes              # Endpoint definitions
-├── .gitignore
 ├── .env.example
+├── .gitignore
+├── README.md
+└── src
+    ├── config
+    │   └── dbConnection.js
+    ├── controllers
+    │   └── authentication.controller.js
+    ├── middlewares
+    │   └── authMiddlware.js
+    ├── models
+    │   ├── admin.model.js
+    │   └── user.model.js
+    └── routes
+        └── authentication.routes.js
 ```
 
 ---
