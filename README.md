@@ -75,7 +75,4 @@ npm start
 
 ---
 
-### 🔮 Future Roadmap  
-[ ] Implement Admin-only routes for user management.  
-[ ] Add User Profile update endpoints.  
-[ ] Integrate Password Reset functionality.
+### Thank you..!!
