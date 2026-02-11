@@ -1,23 +1,42 @@
 {
   "name": "usermanagement-api",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "A comprehensive user management API with authentication, authorization, email verification, password reset, 2FA, and more",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "seed:admin": "node src/scripts/seedAdmin.js"
   },
-  "keywords": [],
+  "keywords": [
+    "authentication",
+    "user-management",
+    "jwt",
+    "express",
+    "mongodb",
+    "2fa",
+    "email-verification"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "joi": "^18.0.2",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.1.4"
+    "mongoose": "^9.1.4",
+    "morgan": "^1.10.1",
+    "nodemailer": "^8.0.1",
+    "qrcode": "^1.5.4",
+    "speakeasy": "^2.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
