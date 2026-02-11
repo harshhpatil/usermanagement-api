@@ -9,7 +9,7 @@ const options = {
             description: 'A comprehensive user management API with authentication, authorization, email verification, password reset, 2FA, and more',
             contact: {
                 name: 'API Support',
-                email: 'support@usermanagement-api.com'
+                email: process.env.CONTACT_EMAIL || 'support@example.com'
             },
             license: {
                 name: 'ISC',
@@ -18,7 +18,7 @@ const options = {
         },
         servers: [
             {
-                url: 'http://localhost:3000',
+                url: process.env.APP_URL || 'http://localhost:3000',
                 description: 'Development server'
             }
         ],

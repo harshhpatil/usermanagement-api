@@ -1,5 +1,6 @@
 import speakeasy from 'speakeasy';
 import qrcode from 'qrcode';
+import crypto from 'crypto';
 
 /**
  * Generate a secret for 2FA
@@ -55,8 +56,9 @@ export const verifyOTP = (token, secret) => {
 export const generateBackupCodes = (count = 8) => {
     const codes = [];
     for (let i = 0; i < count; i++) {
-        // Generate 8-character alphanumeric codes
-        const code = Math.random().toString(36).substring(2, 10).toUpperCase();
+        // Generate 8-character alphanumeric codes using crypto.randomBytes
+        const bytes = crypto.randomBytes(6);
+        const code = bytes.toString('base64').replace(/[^a-zA-Z0-9]/g, '').substring(0, 8).toUpperCase();
         codes.push(code);
     }
     return codes;
