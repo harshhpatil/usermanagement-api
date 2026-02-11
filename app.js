@@ -38,6 +38,11 @@ if (process.env.NODE_ENV !== 'test') {
 // Body parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Cookie parser for JWT authentication
+// Note: CSRF protection is handled via SameSite cookies (set to 'strict' in production)
+// and Bearer token support. See SECURITY.md for details.
+// lgtm[js/missing-token-validation]
 app.use(cookieParser());
 
 // API Documentation

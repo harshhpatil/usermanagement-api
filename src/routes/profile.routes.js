@@ -27,9 +27,9 @@ const router = Router();
  *   description: User profile management endpoints
  */
 
-// All profile routes require authentication
-router.use(authMiddleware);
+// Apply rate limiting and authentication to all profile routes
 router.use(generalLimiter);
+router.use(authMiddleware);
 
 // Profile management
 router.put('/update', validate(updateProfileSchema), updateProfile);
